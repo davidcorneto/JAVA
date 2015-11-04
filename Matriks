@@ -1,0 +1,95 @@
+public static BufferedReader input = new BufferedReader (new InputStreamReader(System.in));    
+    public static void main(String[]args)throws Exception{
+        
+        //himp A
+        System.out.print("Banyaknya Himpunan S = ");
+        int a = Integer.parseInt(input.readLine());
+        int himpS[]=new int[a];
+        for (int i=0;i<a;i++){
+            System.out.print("Elemen S ke-"+(i+1)+" :");
+            String x = input.readLine();
+            himpS[i]=Integer.parseInt(x);
+        }
+        System.out.print("S={");
+        for (int i=0;i<a;i++){
+            System.out.print(himpS[i]);
+            if (i!=a-1){
+                System.out.print(",");
+            }    
+        }
+        System.out.println(")\n\n");
+        
+        //himpB
+        System.out.print("Banyaknya Himpunan G = ");
+        int b = Integer.parseInt(input.readLine());
+        int himpG[]=new int[b];
+        for (int j=0;j<b;j++){
+            System.out.print("Elemen G ke-"+(j+1)+" :");
+            String y = input.readLine();
+            himpG[j]=Integer.parseInt(y);
+        }
+        System.out.print("G={");
+        for (int j=0;j<a;j++){
+            System.out.print(himpG[j]);
+            if (j!=b-1){
+                System.out.print(",");
+            }
+        }
+        System.out.println(")\n\n");
+        
+        //fungsi
+        System.out.print("Fungsi S ke G ={");
+        if(a<=b){
+            for (int i=0;i<a;i++){
+                for (int j=i;j<=i;j++){
+                    System.out.print("("+himpS[i]+","+himpG[j]+")");
+                    if(i!=a-1){
+                        System.out.print(",");
+                    }
+                }
+            }
+        }else{
+            for (int i=0;i<b;i++){
+                for(int j=i;j<=i;i++){
+                    System.out.print("("+himpS[i]+","+himpG[j]+")");
+                    System.out.print(",");
+                }
+            }
+            for (int i=b; i < a; i++){//error
+                for (int j=(i-b);j<=(i-b);j++){
+                    System.out.print("("+himpS[i]+","+himpG[j]+")");
+                    if(i!=a-1){
+                        System.out.print(",");
+                    }
+                }
+            }
+        }
+        System.out.print("Invers fungsi ini adalah = (");
+        if(a <= b){//error
+            for(int i=0; i < a ;i++){
+                for(int j=i;j<=i;j++){
+                    System.out.print("("+himpG[j]+","+himpS[i]+")");
+                    if(i!=a-1){
+                        System.out.print(",");
+                    }
+                }
+            }
+        }else{
+            for(int i=0;i<b;i++){
+                for(int j=i;j<=i;j++){
+                    System.out.print("("+himpG[j]+","+himpS[i]+")");
+                    System.out.print(",");
+                }
+            }
+                for(int i=b;i<a;i++){
+                    for(int j=(i-b);j<=(i-b);j++){
+                        System.out.print("("+himpG[j]+","+himpS[i]+")");
+                        if(i!=a-1){
+                            System.out.print(",");
+                        }
+                        System.out.print(",");
+                    }
+                }
+            }
+        }
+    }
